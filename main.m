@@ -18,7 +18,7 @@ m = 0.5;
 g = 9.8;
 I = [I_xx 0 0; 0 I_yy 0; 0 0 I_zz];
 
-state_initial = [0 0 3 0 0 0 0 0 0 0 0 0];  % local coor
+state_initial = [0 0 3 0 0 0 0 0 0 0 0 0];
 matrix_omega_2_force = [k_F k_F k_F k_F; 0 k_F*L 0 -k_F*L;...
     -k_F*L 0 k_F*L 0; k_M -k_M k_M -k_M];
 matrix_force_2_omega = inv(matrix_omega_2_force);
