@@ -2,7 +2,7 @@ function [ M ] = controller_angular_velocity( u )
 %CONTROLLER_ANGULAR_VELOCITY Summary of this function goes here
 %   Detailed explanation goes here
 
-global I k_p_angular_velocity M_last_step;
+global I M_last_step;
 x = u(1);
 y = u(2);
 z = u(3);
@@ -19,10 +19,10 @@ dp = u(16);
 dq = u(17);
 dr = u(18);
 
-Omega_d = [u(13) u(14) u(15)]';
+output_pid_angular_velocity = [u(13) u(14) u(15)]';
 Omega_0 = [p q r]';
 dOmega0 = [dp dq dr]';
-delta_M = I * ((Omega_d - Omega_0)*k_p_angular_velocity - dOmega0);
+delta_M = I * (output_pid_angular_velocity - dOmega0);
 
 M = M_last_step +delta_M;
 M_last_step = M;
