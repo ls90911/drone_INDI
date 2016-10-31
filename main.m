@@ -2,14 +2,16 @@ clear
 clc
 
 global k_F k_M L m g I_xx I_yy I_zz I matrix_force_2_omega
-% global k_p_angular_velocity_p k_p_angular_velocity_q  k_p_angular_velocity_r 
+% global k_p_angular_velocity_p k_p_angular_velocity_q k_p_angular_velocity_r 
 % global k_i_angular_velocity_p k_i_angular_velocity_q k_i_angular_velocity_r
 % global k_d_angular_velocity_p k_d_angular_velocity_q k_d_angular_velocity_r
 
 global M_last_step
 
+global flight_log pointer;
 
-
+flight_log = zeros(1,15);
+pointer = 1;
 %------------------------------------------------------
 %                  model parameter
 %------------------------------------------------------
@@ -28,17 +30,17 @@ M_last_step = [0 0 0]';
 %-------------------------------------------------------
 %   Controller parameters
 %-------------------------------------------------------
-k_p_angular_velocity_p = 1;
+k_p_angular_velocity_p = 8;
 k_i_angular_velocity_p = 0;
-k_d_angular_velocity_p = 0.1;
+k_d_angular_velocity_p = 0;
 
-k_p_angular_velocity_q = 1;
+k_p_angular_velocity_q = 8;
 k_i_angular_velocity_q = 0;
-k_d_angular_velocity_q = 0.1;
+k_d_angular_velocity_q = 0;
 
-k_p_angular_velocity_r = 1;
+k_p_angular_velocity_r = 5;
 k_i_angular_velocity_r = 0;
-k_d_angular_velocity_r = 0.1;
+k_d_angular_velocity_r = 0;
 
 
 
